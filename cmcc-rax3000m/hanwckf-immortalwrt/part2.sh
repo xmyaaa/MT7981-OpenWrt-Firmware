@@ -19,17 +19,6 @@ rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b master --single-branch https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
 echo '=========Replace luci theme argon OK!========='
 
-echo '替换golang到1.22.x'
-rm -rf feeds/packages/lang/golang
-git clone -b 22.x --single-branch https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-echo '=========Replace golang OK!========='
-
-echo '替换Passwall软件'
-rm -rf feeds/luci/applications/luci-app-passwall
-git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall feeds/luci/applications/luci-app-passwall
-mv feeds/luci/applications/luci-app-passwall/luci-app-passwall/* feeds/luci/applications/luci-app-passwall/
-rm -rf feeds/luci/applications/luci-app-passwall/luci-app-passwall
-echo '=========Replace passwall source OK!========='
 
 echo '修改Passwall检测规则'
 sed -i 's/socket" "iptables-mod-//g' feeds/luci/applications/luci-app-passwall/root/usr/share/passwall/app.sh
