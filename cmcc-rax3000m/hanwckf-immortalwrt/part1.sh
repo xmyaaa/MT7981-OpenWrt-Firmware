@@ -14,6 +14,9 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 echo '添加Passwall依赖feeds'
-sed -i '1 i src-git-full passwall https://github.com/xiaorouji/openwrt-passwall-packages;main' feeds.conf.default
+# sed -i '1 i src-git-full passwall https://github.com/xiaorouji/openwrt-passwall-packages;main' feeds.conf.default
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 echo '=========Add passwall feeds source OK!========='
-
+# Add a feed source
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
