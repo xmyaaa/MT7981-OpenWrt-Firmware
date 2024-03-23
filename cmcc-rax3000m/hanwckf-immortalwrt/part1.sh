@@ -19,5 +19,3 @@ echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.co
 echo '=========Add passwall feeds source OK!========='
 
 # Add a feed source
-rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
