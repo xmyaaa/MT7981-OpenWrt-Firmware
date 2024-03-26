@@ -20,7 +20,9 @@ echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' >>fe
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' >>feeds.conf.default
 echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git' >>feeds.conf.default
 echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
-
+#
+#svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-package/trunk/package/sing-box package/sing-box
 
 #sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
