@@ -27,5 +27,3 @@ sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 echo '=========Add passwall feeds source OK!========='
 
 # Add a feed source
-rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
