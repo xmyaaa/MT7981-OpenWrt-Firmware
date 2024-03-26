@@ -20,4 +20,4 @@ sed -i '1 i src-git-full passwall https://github.com/xiaorouji/openwrt-passwall-
 echo '=========Add passwall feeds source OK!========='
 
 # Add a feed source
-svn co https://github.com/kenzok8/small/trunk/master/trunk/uci-app-ssr-plus package/luci-app-ssr-plus
+svn co https://github.com/kenzok8/openwrt-packages/trunk/package/luci-app-ssr-plus package/luci-app-ssr-plus
