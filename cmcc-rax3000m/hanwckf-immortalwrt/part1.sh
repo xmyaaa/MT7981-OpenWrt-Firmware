@@ -27,5 +27,5 @@ echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.def
 echo '=========Add passwall feeds source OK!========='
 
 # Add a feed source
-#rm -rf package/helloworld
-#git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
