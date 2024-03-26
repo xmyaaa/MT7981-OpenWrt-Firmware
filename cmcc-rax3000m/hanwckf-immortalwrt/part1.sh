@@ -23,7 +23,6 @@ echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.def
 #
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-package/trunk/package/sing-box package/sing-box
-svn co https://github.com/fw876/helloworld/trunk/master/shadowsocks-rust master/shadowsocks-rust
 #sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 echo '=========Add passwall feeds source OK!========='
