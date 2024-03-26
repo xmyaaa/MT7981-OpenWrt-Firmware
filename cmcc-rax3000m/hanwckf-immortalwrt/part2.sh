@@ -1,39 +1,43 @@
 #!/bin/bash
 #
-#Copyright 2021-2024 yangxu52<https://github.com/yangxu52>
+# https://github.com/P3TERX/Actions-OpenWrt
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
 #
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
 
-echo '替换jerrykuku的luci argon主题'
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b master --single-branch https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
-echo '=========Replace luci theme argon OK!========='
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
-echo '替换golang到1.22.x'
-rm -rf feeds/packages/lang/golang
-git clone -b 22.x --single-branch https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-echo '=========Replace golang OK!========='
+# Modify default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# Modify hostname
+#sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 echo '替换Passwall软件'
-#rm -rf feeds/luci/applications/luci-app-passwall
-#git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall feeds/luci/applications/luci-app-passwall
-#mv feeds/luci/applications/luci-app-passwall/luci-app-passwall/* feeds/luci/applications/luci-app-passwall/
-#rm -rf feeds/luci/applications/luci-app-passwall/luci-app-passwall
+
 echo '=========Replace passwall source OK!========='
 
 echo '修改Passwall检测规则'
-sed -i 's/socket" "iptables-mod-//g' feeds/luci/applications/luci-app-passwall/root/usr/share/passwall/app.sh
+#sed -i 's/socket" "iptables-mod-//g' feeds/luci/applications/luci-app-passwall/root/usr/share/passwall/app.sh
 echo '=========ALTER passwall denpendcies check OK!========='
+
+echo '修改主机名'
+#sed -i "s/hostname='ImmortalWrt'/hostname='RAX3000M'/g" package/base-files/files/bin/config_generate
+#cat package/base-files/files/bin/config_generate |grep hostname=
+echo '=========Alert hostname OK!========='
+
+echo '修改默认IP'
+#sed -i 's/ipad=${ipaddr:-"192.168.1.1"}/ipad=${ipaddr:-"192.168.10.1"}/g' package/base-files/files/bin/config_generate
+#sed -i 's/addr_offset=2/addr_offset=8/g' package/base-files/files/bin/config_generate
+#sed -i 's/${ipaddr:-"192.168.$((addr_offset++)).1"}/${ipaddr:-"192.168.$((addr_offset++)).1"}/g' package/base-files/files/bin/config_generate
+#cat package/base-files/files/bin/config_generate |grep hostname=
+echo '=========Alert Default IP OK!========='
 
 # echo '开启sing-box的CGO标记'
 # sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/passwall/sing-box/Makefile
