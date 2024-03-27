@@ -14,20 +14,15 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 echo '添加Passwall依赖feeds'
-#sed -i '1 i src-git-full passwall https://github.com/xiaorouji/openwrt-passwall-packages;main' feeds.conf.default
+sed -i '1 i src-git-full passwall https://github.com/xiaorouji/openwrt-passwall-packages;main' feeds.conf.default
 #
 #echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' >>feeds.conf.default
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' >>feeds.conf.default
+echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall.git' >>feeds.conf.default
 #echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git' >>feeds.conf.default
+#echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 
-#sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+echo '=========Add passwall feeds source OK!========='
 
-echo '将此存储库添加为 OpenWrt feed'
-sed -i "/helloworld/d" "feeds.conf.default"
-echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-./scripts/feeds update helloworld
-./scripts/feeds install -a -f -p helloworld
-sed -i "/helloworld/d" "feeds.conf.default"
-./scripts/feeds clean
-./scripts/feeds update -a
-./scripts/feeds install -a
+# Add a feed source
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
