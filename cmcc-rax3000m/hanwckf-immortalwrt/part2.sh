@@ -32,7 +32,7 @@ rm -rf feeds/luci/applications/luci-app-passwall/luci-app-passwall
 echo '=========Replace passwall source OK!========='
 
 echo '修改Passwall检测规则'
-sed -i 's/socket" "iptables-mod-//g' feeds/luci/applications/luci-app-passwall/root/usr/share/passwall/app.sh
+#sed -i 's/socket" "iptables-mod-//g' feeds/luci/applications/luci-app-passwall/root/usr/share/passwall/app.sh
 echo '=========ALTER passwall denpendcies check OK!========='
 
 # echo '开启sing-box的CGO标记'
