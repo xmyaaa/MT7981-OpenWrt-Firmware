@@ -24,7 +24,7 @@ echo '修改主机名'
 echo '=========Alert hostname OK!========='
 
 echo '修改默认IP'
-sed -i 's/ipad=${ipaddr:-"192.168.1.1"}/ipad=${ipaddr:-"192.168.7.1"}/g' package/base-files/files/bin/config_generate
+sed -i 's/ipad=${ipaddr:-"192.168.1.1"}/ipad=${ipaddr:-"192.168.10.1"}/g' package/base-files/files/bin/config_generate
 sed -i 's/addr_offset=2/addr_offset=8/g' package/base-files/files/bin/config_generate
 sed -i 's/${ipaddr:-"192.168.$((addr_offset++)).1"}/${ipaddr:-"192.168.$((addr_offset++)).1"}/g' package/base-files/files/bin/config_generate
 cat package/base-files/files/bin/config_generate |grep hostname=
