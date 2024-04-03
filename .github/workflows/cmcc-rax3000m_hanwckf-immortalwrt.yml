@@ -137,7 +137,7 @@ jobs:
         run: |
           cd openwrt/bin/targets/*/*
           rm -rf packages
-          find . -type f ! -name "*.bin" -exec rm {} +
+          #find . -type f ! -name "*.bin" -exec rm {} +
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
           echo "STATUS=success" >> "$GITHUB_OUTPUT"
 
